@@ -43,18 +43,11 @@ const app = {
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
         {
-            name: 'Shake It Off',
-            singer: 'Taylor Swift',
-            image: './images/1989.jpg',
-            path: './soundtracks/TaylorSwift_ShakeItOff.mp3',
-            length: '04:02'
-        },
-        {
             name: 'Bad Blood',
             singer: 'Taylor Swift',
             image: './images/1989.jpg',
             path: './soundtracks/TaylorSwift_BadBlood.mp3',
-            length: '04:20'
+            length: '03:20'
         },
         {
             name: 'Blank Space',
@@ -64,18 +57,11 @@ const app = {
             length: '04:32'
         },
         {
-            name: 'Wildest Dream',
+            name: 'Cruel Summer',
             singer: 'Taylor Swift',
-            image: './images/1989.jpg',
-            path: './soundtracks/TaylorSwift_WildestDream.mp3',
-            length: '03:40'
-        },
-        {
-            name: 'Love Story',
-            singer: 'Taylor Swift',
-            image: './images/Fearless.jpg',
-            path: './soundtracks/TaylorSwift_LoveStory.mp3',
-            length: '03:58'
+            image: './images/Lover.jpg',
+            path: './soundtracks/TaylorSwift_CruelSummer.mp3',
+            length: '02:58'
         },
         {
             name: 'Enchanted',
@@ -83,7 +69,28 @@ const app = {
             image: './images/SpeakNow.jpg',
             path: './soundtracks/TaylorSwift_Enchanted.mp3',
             length: '05:53'
-        }
+        },
+        {
+            name: 'Love Story',
+            singer: 'Taylor Swift',
+            image: './images/Fearless.jpg',
+            path: './soundtracks/TaylorSwift_LoveStory.mp3',
+            length: '03:57'
+        },
+        {
+            name: 'Shake It Off',
+            singer: 'Taylor Swift',
+            image: './images/1989.jpg',
+            path: './soundtracks/TaylorSwift_ShakeItOff.mp3',
+            length: '04:02'
+        },
+        {
+            name: 'Wildest Dream',
+            singer: 'Taylor Swift',
+            image: './images/1989.jpg',
+            path: './soundtracks/TaylorSwift_WildestDream.mp3',
+            length: '03:40'
+        },
     ],
     setConfig: function(key, value) {
         this.config[key] = value;
