@@ -201,28 +201,86 @@ const app = {
             songTimer.innerHTML = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
         }
 
-        // Tua nhanh nhạc (Music forward)
+        // Tua nhanh nhạc trên mobile (Music forward)
+        deactive.ontouchmove = function(ev) {
+            if (ev.touches.length == 1) {
+                var mainWidth = progressLine.offsetWidth;
+                var rect = this.getBoundingClientRect();
+                var newWidth = (rect.right - ev.touches[0].pageX) / mainWidth * 100;
+    
+                this.style.width = newWidth + '%';
+                active.style.width = (100 - newWidth) + '%';
+    
+                const seekTime = parseFloat(active.style.width, 10) * audio.duration / 100;
+                audio.currentTime = seekTime;
+            }
+        }
+
+        // Tua nhanh nhạc trên máy tính (Music forward)
+        deactive.onmousemove = function(ev) {
+            if (ev.buttons == 1) {
+                var mainWidth = progressLine.offsetWidth;
+                var rect = this.getBoundingClientRect();
+                var newWidth = (rect.right - ev.clientX) / mainWidth * 100;
+    
+                this.style.width = newWidth + '%';
+                active.style.width = (100 - newWidth) + '%';
+    
+                const seekTime = parseFloat(active.style.width, 10) * audio.duration / 100;
+                audio.currentTime = seekTime;
+            }
+        }
+
         deactive.onclick = function(ev) {
             var mainWidth = progressLine.offsetWidth;
             var rect = this.getBoundingClientRect();
             var newWidth = (rect.right - ev.clientX) / mainWidth * 100;
-
+    
             this.style.width = newWidth + '%';
             active.style.width = (100 - newWidth) + '%';
-
+    
             const seekTime = parseFloat(active.style.width, 10) * audio.duration / 100;
             audio.currentTime = seekTime;
         }
 
-        // Tua ngược nhạc (Music rewind)
+        // Tua ngược nhạc trên mobile (Music rewind)
+        active.ontouchmove = function(ev) {
+            if (ev.touches.length == 1) {
+                var mainWidth = progressLine.offsetWidth;
+                var rect = this.getBoundingClientRect();
+                var newWidth = (ev.touches[0].pageX - rect.left) / mainWidth * 100;
+            
+                this.style.width = newWidth + '%';
+                deactive.style.width = (100 - newWidth) + '%';
+            
+                const seekTime = parseFloat(active.style.width, 10) * audio.duration / 100;
+                audio.currentTime = seekTime;
+            }
+        }
+
+         // Tua ngược nhạc trên máy tính (Music rewind)
+        active.onmousemove = function(ev) {
+            if (ev.buttons == 1) {
+                var mainWidth = progressLine.offsetWidth;
+                var rect = this.getBoundingClientRect();
+                var newWidth = (ev.clientX - rect.left) / mainWidth * 100;
+            
+                this.style.width = newWidth + '%';
+                deactive.style.width = (100 - newWidth) + '%';
+            
+                const seekTime = parseFloat(active.style.width, 10) * audio.duration / 100;
+                audio.currentTime = seekTime;
+            }
+        }
+
         active.onclick = function(ev) {
             var mainWidth = progressLine.offsetWidth;
             var rect = this.getBoundingClientRect();
             var newWidth = (ev.clientX - rect.left) / mainWidth * 100;
-
+        
             this.style.width = newWidth + '%';
             deactive.style.width = (100 - newWidth) + '%';
-
+        
             const seekTime = parseFloat(active.style.width, 10) * audio.duration / 100;
             audio.currentTime = seekTime;
         }
@@ -256,6 +314,11 @@ const app = {
             app.isRandom = !app.isRandom;
             app.setConfig('isRandom', app.isRandom);
             randomBtn.classList.toggle('active', app.isRandom);
+            if (app.isRandom === true) {
+                app.isRepeat = false;
+                app.setConfig('isRepeat', app.isRepeat);
+                repeatBtn.classList.toggle('active', app.isRepeat);
+            }
         }
 
         // Xử lý phát lại bài hát
@@ -263,6 +326,11 @@ const app = {
             app.isRepeat = !app.isRepeat;
             app.setConfig('isRepeat', app.isRepeat);
             repeatBtn.classList.toggle('active', app.isRepeat);
+            if (app.isRepeat === true) {
+                app.isRandom = false;
+                app.setConfig('isRandom', app.isRandom);
+                randomBtn.classList.toggle('active', app.isRandom);
+            }
         }
 
         // Xử lý next song khi audio ended
