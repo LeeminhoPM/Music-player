@@ -532,6 +532,9 @@ body {
     font-size: 26px;
     font-weight: 500;
     margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container .right-section .music-player .description h5 {
@@ -865,7 +868,9 @@ body {
     }
 
     .container main header .search {
-        width: 38px;
+        padding: 4px;
+        font-size: 20px;
+        width: 30px;
     }
 
     .container .right-section {

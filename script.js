@@ -43,8 +43,17 @@ const app = {
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
         {
+            name: 'Afterglow',
+            singer: 'Taylor Swift',
+            album: 'Lover',
+            image: './images/Lover.png',
+            path: './soundtracks/TaylorSwift_Afterglow.mp3',
+            length: '03:44'
+        },
+        {
             name: 'Bad Blood',
             singer: 'Taylor Swift',
+            album: '1989',
             image: './images/1989.jpg',
             path: './soundtracks/TaylorSwift_BadBlood.mp3',
             length: '03:20'
@@ -52,6 +61,7 @@ const app = {
         {
             name: 'Blank Space',
             singer: 'Taylor Swift',
+            album: '1989',
             image: './images/1989.jpg',
             path: './soundtracks/TaylorSwift_BlankSpace.mp3',
             length: '04:32'
@@ -59,20 +69,39 @@ const app = {
         {
             name: 'Cruel Summer',
             singer: 'Taylor Swift',
-            image: './images/Lover.jpg',
+            album: 'Lover',
+            image: './images/Lover.png',
             path: './soundtracks/TaylorSwift_CruelSummer.mp3',
             length: '02:58'
         },
         {
+            name: 'Daylight',
+            singer: 'Taylor Swift',
+            album: 'Lover',
+            image: './images/Lover.png',
+            path: './soundtracks/TaylorSwift_Daylight.mp3',
+            length: '04:54'
+        },
+        {
             name: 'Enchanted',
             singer: 'Taylor Swift',
+            album: 'Speak Now',
             image: './images/SpeakNow.jpg',
             path: './soundtracks/TaylorSwift_Enchanted.mp3',
             length: '05:53'
         },
         {
+            name: 'Look What You Made Me Do',
+            singer: 'Taylor Swift',
+            album: 'Reputation',
+            image: './images/Reputation.jpg',
+            path: './soundtracks/TaylorSwift_LookWhatYouMadeMeDo.mp3',
+            length: '03:35'
+        },
+        {
             name: 'Love Story',
             singer: 'Taylor Swift',
+            album: 'Fearless',
             image: './images/Fearless.jpg',
             path: './soundtracks/TaylorSwift_LoveStory.mp3',
             length: '03:57'
@@ -80,6 +109,7 @@ const app = {
         {
             name: 'Shake It Off',
             singer: 'Taylor Swift',
+            album: '1989',
             image: './images/1989.jpg',
             path: './soundtracks/TaylorSwift_ShakeItOff.mp3',
             length: '04:02'
@@ -87,9 +117,18 @@ const app = {
         {
             name: 'Wildest Dream',
             singer: 'Taylor Swift',
+            album: '1989',
             image: './images/1989.jpg',
             path: './soundtracks/TaylorSwift_WildestDream.mp3',
             length: '03:40'
+        },
+        {
+            name: 'You Belong With Me',
+            singer: 'Taylor Swift',
+            album: 'Fearless',
+            image: './images/Fearless.jpg',
+            path: './soundtracks/TaylorSwift_YouBelongWithMe.mp3',
+            length: '03:48'
         },
     ],
     setConfig: function(key, value) {
@@ -231,6 +270,7 @@ const app = {
             }
         }
 
+        // Tua nhanh khi click
         deactive.onclick = function(ev) {
             var mainWidth = progressLine.offsetWidth;
             var rect = this.getBoundingClientRect();
@@ -273,6 +313,7 @@ const app = {
             }
         }
 
+        // Tua ngược khi click
         active.onclick = function(ev) {
             var mainWidth = progressLine.offsetWidth;
             var rect = this.getBoundingClientRect();
@@ -358,7 +399,7 @@ const app = {
     loadCurrentSong: function() {
         songName.textContent = this.currentSong.name;
         artistName.textContent = this.currentSong.singer;
-        playlistTitle.textContent = 'Best of 2024';
+        playlistTitle.textContent = this.currentSong.album;
         songDuration.textContent = this.currentSong.length;
         cdThumb.src = this.currentSong.image;
         audio.src = this.currentSong.path;
