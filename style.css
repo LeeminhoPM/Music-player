@@ -528,14 +528,18 @@ body {
     border-radius: 50%;
 }
 
+.container .right-section .music-player .description {
+    max-width: 350px;
+    overflow: hidden;
+}
+
 .container .right-section .music-player .description h3 {
     font-size: 26px;
     font-weight: 500;
     margin-bottom: 8px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    position: relative;
+} 
 
 .container .right-section .music-player .description h5 {
     font-size: 16px;
@@ -789,7 +793,7 @@ body {
     }
 
     .container .sidebar {
-        position: absolute;
+        position: fixed;
         left: -100%;
     }
 

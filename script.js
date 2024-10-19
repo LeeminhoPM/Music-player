@@ -107,12 +107,36 @@ const app = {
             length: '03:57'
         },
         {
+            name: 'ME!',
+            singer: 'Taylor Swift',
+            album: 'Lover',
+            image: './images/Lover.png',
+            path: './soundtracks/TaylorSwift_ME!.mp3',
+            length: '03:14'
+        },
+        {
             name: 'Shake It Off',
             singer: 'Taylor Swift',
             album: '1989',
             image: './images/1989.jpg',
             path: './soundtracks/TaylorSwift_ShakeItOff.mp3',
             length: '04:02'
+        },
+        {
+            name: 'Style',
+            singer: 'Taylor Swift',
+            album: '1989',
+            image: './images/1989.jpg',
+            path: './soundtracks/TaylorSwift_Style.mp3',
+            length: '03:55'
+        },
+        {
+            name: 'We Are Never Ever Getting Back Together',
+            singer: 'Taylor Swift',
+            album: 'RED',
+            image: './images/Red.jpg',
+            path: './soundtracks/TaylorSwift_WeAreNeverEverGettingBackTogether.mp3',
+            length: '03:14'
         },
         {
             name: 'Wildest Dream',
